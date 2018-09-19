@@ -11,7 +11,6 @@ var config = new DownloadConfig()
     InstallDirectory = ".temp",
     UsingFileList = true,
     FilesToDownloadRegex = new List<Regex>() { _rustFilesRegex },
-    SavePathProcessor = SavePathProcessor,
 };
 var downloader = new global::DepotDownloader.DepotDownloader(config);
 downloader.Download(true);
