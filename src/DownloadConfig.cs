@@ -41,13 +41,13 @@ namespace DepotDownloader
         /// <summary>
         /// Call when downloading progress changed
         /// </summary>
-        public static event Action<string> ReportProgressEvent;
+        public event Action<string> OnReportProgressEvent;
         
         /// <summary>
         /// 1 - type    (log, warning, error, exception)
         /// 2 - message (exception - Exception object, in other string)
         /// </summary>
-        public static event Action<string, object> OnMessageEvent;
+        public event Action<string, object> OnMessageEvent;
 
         /// <summary>
         /// 1 - install directory
@@ -55,12 +55,12 @@ namespace DepotDownloader
         /// </summary>
         public Func<string, string> SavePathProcessor;
 
-        internal static void FireReportProgressEvent(string message)
+        internal void FireReportProgressEvent(string message)
         {
-            ReportProgressEvent?.Invoke(message);
+            OnReportProgressEvent?.Invoke(message);
         }
         
-        internal static void FireOnMessageEvent(string type, object message)
+        internal void FireOnMessageEvent(string type, object message)
         {
             OnMessageEvent?.Invoke(type, message);
         }

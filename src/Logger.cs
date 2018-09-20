@@ -8,24 +8,24 @@ namespace DepotDownloader
         static StringBuilder  _sBuilder = new StringBuilder(128);
         static DownloadConfig _Config;
 
-        public static void Log(string line, params object[] args)
+        public static void Info(string line, params object[] args)
         {
-            DownloadConfig.FireOnMessageEvent("log", Format(line, args));
+            _Config.FireOnMessageEvent("log", Format(line, args));
         }
         
         public static void Warning(string line, params object[] args)
         {
-            DownloadConfig.FireOnMessageEvent("warning", Format(line, args));
+            _Config.FireOnMessageEvent("warning", Format(line, args));
         }
         
         public static void Error(string line, params object[] args)
         {
-            DownloadConfig.FireOnMessageEvent("error", Format(line, args));
+            _Config.FireOnMessageEvent("error", Format(line, args));
         }
         
         public static void Exception(Exception exception)
         {
-            DownloadConfig.FireOnMessageEvent("exception", exception);
+            _Config.FireOnMessageEvent("exception", exception);
         }
 
         internal static void SetConfig(DownloadConfig config)

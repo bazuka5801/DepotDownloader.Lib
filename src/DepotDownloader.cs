@@ -11,6 +11,7 @@ namespace DepotDownloader
         {
             this._config = config;
             ContentDownloader.Config = config;
+            Logger.SetConfig(config);
             ContentDownloader.InitializeSteam3();
         }
 
